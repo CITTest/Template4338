@@ -24,5 +24,11 @@ namespace Template4338
         {
             InitializeComponent();
         }
+        private void OpenWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+          
+            var window4338 = new _4338_Муфахарова();
+            window4338.Show();
+        }
     }
 }
