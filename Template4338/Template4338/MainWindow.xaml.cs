@@ -24,5 +24,10 @@ namespace Template4338
         {
             InitializeComponent();
         }
+
+        private void Saidov_4338(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Saidov_19");
+        }
     }
 }
