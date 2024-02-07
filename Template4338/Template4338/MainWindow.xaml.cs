@@ -24,5 +24,11 @@ namespace Template4338
         {
             InitializeComponent();
         }
+
+        private void Масютин_4338_Click_1(object sender, RoutedEventArgs e)
+        {
+            var Масютин_4338 = new Масютин_4338();
+            Масютин_4338.ShowDialog();
+        }
     }
 }
