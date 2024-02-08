@@ -38,6 +38,6 @@
             <RowDefinition Height="*"></RowDefinition>
 
         </Grid.RowDefinitions>
-         <Button Grid.Row="2"> Gayalieva Kamila 17 </Button>
+         <Button Grid.Row="2" Click="btn"> Gayalieva Kamila 17 </Button>
     </Grid>
 </Window>
