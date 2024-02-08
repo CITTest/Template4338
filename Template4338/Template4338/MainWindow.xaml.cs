@@ -24,5 +24,10 @@ namespace Template4338
         {
             InitializeComponent();
         }
+
+        private void Shchukin_4338(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Shchukin_18");
+        }
     }
 }
