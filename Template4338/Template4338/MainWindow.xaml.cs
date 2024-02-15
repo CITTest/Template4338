@@ -24,5 +24,11 @@ namespace Template4338
         {
             InitializeComponent();
         }
+
+        private void Dyatlov_4338(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Dyatlov_18");
+
+        }
     }
 }
