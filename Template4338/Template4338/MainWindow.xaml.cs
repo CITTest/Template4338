@@ -24,5 +24,11 @@ namespace Template4338
         {
             InitializeComponent();
         }
+
+        private void InfoButtonClicked(object sender, RoutedEventArgs e)
+        {
+            _4338_DavletshinaZN authorInfo = new _4338_DavletshinaZN();
+            authorInfo.Show();
+        }
     }
 }
