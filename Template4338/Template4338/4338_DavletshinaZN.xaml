@@ -8,8 +8,9 @@
         Title="_4338_DavletshinaZN" Height="450" Width="800">
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="618,364,0,0" VerticalAlignment="Top" Height="24" Width="90"/>
-        <Label Content="Информация об авторе изменений" HorizontalAlignment="Left" Margin="314,31,0,0" VerticalAlignment="Top" Height="34" Width="213"/>
-        <TextBlock HorizontalAlignment="Left" Margin="72,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Label  Content="Информация об авторе изменений" HorizontalAlignment="Left" Margin="314,31,0,0" VerticalAlignment="Top" Height="34" Width="213" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,88,0,0" TextWrapping="Wrap" Text="NAME: Zukhra" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="AGE: 18" VerticalAlignment="Top" Margin="72,109,0,0"/>
 
     </Grid>
 </Window>

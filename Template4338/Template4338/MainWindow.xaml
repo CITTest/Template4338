@@ -11,7 +11,6 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*">
-		<Button Content="Давлетшина Зухра" Click="InfoButtonClicked"/> 
 	    </RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -40,6 +39,7 @@
             <RowDefinition Height="*"></RowDefinition>
 
         </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="2" Content="Давлетшина Зухра" Click="InfoButtonClicked"/>
 
     </Grid>
 </Window>

@@ -19,6 +19,7 @@ namespace Template4338
     /// </summary>
     public partial class _4338_DavletshinaZN : Window
     {
+
         public _4338_DavletshinaZN()
         {
             InitializeComponent();
