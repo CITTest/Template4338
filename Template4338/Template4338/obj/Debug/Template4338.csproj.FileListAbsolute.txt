@@ -1,0 +1,15 @@
+D:\лабы\isrpo16\-\Template4338\Template4338\bin\Debug\Template4338.exe.config
+D:\лабы\isrpo16\-\Template4338\Template4338\bin\Debug\Template4338.exe
+D:\лабы\isrpo16\-\Template4338\Template4338\bin\Debug\Template4338.pdb
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338.csproj.AssemblyReference.cache
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\MainWindow.g.cs
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\App.g.cs
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338_MarkupCompile.cache
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338_MarkupCompile.lref
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\MainWindow.baml
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338.g.resources
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338.Properties.Resources.resources
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338.csproj.GenerateResource.cache
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338.csproj.CoreCompileInputs.cache
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338.exe
+D:\лабы\isrpo16\-\Template4338\Template4338\obj\Debug\Template4338.pdb

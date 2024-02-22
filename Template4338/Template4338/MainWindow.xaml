@@ -38,6 +38,6 @@
             <RowDefinition Height="*"></RowDefinition>
 
         </Grid.RowDefinitions>
-
+        <Button Grid.Row="6" Click="4338Kamashev" x:Name="b" Content="Click"></Button>
     </Grid>
 </Window>
