@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище labModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dant">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationDate" Type="varchar" MaxLength="255" />
+    <Property Name="OrderTime" Type="varchar" MaxLength="255" />
+    <Property Name="ClientCode" Type="int" />
+    <Property Name="Servicee" Type="varchar" MaxLength="255" />
+    <Property Name="Statuss" Type="varchar" MaxLength="255" />
+    <Property Name="ClosingDate" Type="varchar" MaxLength="255" />
+    <Property Name="RentalTime" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityContainer Name="Хранилище labModelContainer">
+    <EntitySet Name="Dant" EntityType="Self.Dant" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
