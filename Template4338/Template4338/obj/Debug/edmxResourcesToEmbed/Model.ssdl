@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище labModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Work">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Код_заказа" Type="int" />
+    <Property Name="Дата_создания" Type="date" />
+    <Property Name="Время_заказа" Type="time" Precision="7" />
+    <Property Name="Код_клиента" Type="int" />
+    <Property Name="Услуги" Type="nvarchar" MaxLength="255" />
+    <Property Name="Статус" Type="nvarchar" MaxLength="255" />
+    <Property Name="Дата_закрытия" Type="date" />
+    <Property Name="Время_проката" Type="time" Precision="7" />
+  </EntityType>
+  <EntityContainer Name="Хранилище labModel1Container">
+    <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

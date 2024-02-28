@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="labModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Work">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Код_заказа" Type="Int32" />
+    <Property Name="Дата_создания" Type="DateTime" Precision="0" />
+    <Property Name="Время_заказа" Type="Time" Precision="7" />
+    <Property Name="Код_клиента" Type="Int32" />
+    <Property Name="Услуги" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Статус" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Дата_закрытия" Type="DateTime" Precision="0" />
+    <Property Name="Время_проката" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityContainer Name="labEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Work" EntityType="Self.Work" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище labModelContainer" CdmEntityContainer="labEntities3">
+    <EntitySetMapping Name="Dant">
+      <EntityTypeMapping TypeName="labModel.Dant">
+        <MappingFragment StoreEntitySet="Dant">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+          <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+          <ScalarProperty Name="Servicee" ColumnName="Servicee" />
+          <ScalarProperty Name="Statuss" ColumnName="Statuss" />
+          <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+          <ScalarProperty Name="RentalTime" ColumnName="RentalTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
