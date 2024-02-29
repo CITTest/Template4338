@@ -24,5 +24,11 @@ namespace Template4338
         {
             InitializeComponent();
         }
+
+        private void OnShowAuthorInfoClick(object sender, RoutedEventArgs e)
+        {
+            Window1 authorInfoWindow = new Window1();
+            authorInfoWindow.ShowDialog();
+        }
     }
 }

@@ -23,7 +23,9 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*">
+
+            </RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -36,8 +38,12 @@
 
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+
 
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="16">
+            <Button Content="Показать информацию об авторе изменения" Click="OnShowAuthorInfoClick"/>
+        </Grid>
     </Grid>
 </Window>
