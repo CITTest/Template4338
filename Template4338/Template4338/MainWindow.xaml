@@ -17,7 +17,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"> </RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -38,6 +38,7 @@
             <RowDefinition Height="*"></RowDefinition>
 
         </Grid.RowDefinitions>
+        <Button Content="Открыть окно" Click="OpenWindowButton_Click" Grid.Row="9"/>
 
     </Grid>
 </Window>
