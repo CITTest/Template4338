@@ -15,3 +15,11 @@ D:\лабы\Template4338\Template4338\Template4338\obj\Debug\Template4338.csproj
 D:\лабы\Template4338\Template4338\Template4338\obj\Debug\Template4338.csproj.CoreCompileInputs.cache
 D:\лабы\Template4338\Template4338\Template4338\obj\Debug\Template4338.exe
 D:\лабы\Template4338\Template4338\Template4338\obj\Debug\Template4338.pdb
+D:\лабы\Template4338\Template4338\Template4338\obj\Debug\Template4338.csproj.ResolveComReference.cache
+D:\лабы\Template4338\Template4338\Template4338\bin\Debug\EntityFramework.dll
+D:\лабы\Template4338\Template4338\Template4338\bin\Debug\EntityFramework.SqlServer.dll
+D:\лабы\Template4338\Template4338\Template4338\bin\Debug\EntityFramework.xml
+D:\лабы\Template4338\Template4338\Template4338\bin\Debug\EntityFramework.SqlServer.xml
+D:\лабы\Template4338\Template4338\Template4338\bin\Debug\ru\EntityFramework.resources.dll
+D:\лабы\Template4338\Template4338\Template4338\obj\Debug\Template4338_Content.g.cs
+D:\лабы\Template4338\Template4338\Template4338\obj\Debug\Template4338.csproj.CopyComplete

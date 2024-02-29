@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="_4338_Муфахарова" Height="200" Width="400">
     <Grid>
-        <TextBlock Text="Муфахарова Амина, 18 лет" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button x:Name="BnImport" Click="BnImport_Click">Импорт данных</Button>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button x:Name="BnImport1" Click="BnImport1_Click">Экспорт данных</Button>
+        </Grid>
     </Grid>
 </Window>
