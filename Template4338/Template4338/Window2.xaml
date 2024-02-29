@@ -33,7 +33,6 @@
             <TextBlock Text="Email:"/>
             <TextBox x:Name="emailTextBox"/>
 
-            <Button Content="Добавить и сохранить" Click="AddAndSaveButton_Click" Margin="0,10,0,0"/>
             
 
         </StackPanel>

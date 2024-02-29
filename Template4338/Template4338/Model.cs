@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
 
-namespace Template4338
+public class Model
 {
-    public class Model
-        {
-            public int Id { get; set; }
-            public string ФИО { get; set; }
-            public long Код_клиента { get; set; }
-            public DateTime Дата_рождения { get; set; }
-            public int Индекс { get; set; }
-            public string Город { get; set; }
-            public string Улица { get; set; }
-            public int Дом { get; set; }
-            public int Квартира { get; set; }
-            public string Mail { get; set; }
+    [JsonIgnore]
+    public int Id { get; set; }
 
-    }
+    public string FullName { get; set; }
+    public string CodeClient { get; set; }
+    public string BirthDate { get; set; }
+    public string Index { get; set; }
+    public string City { get; set; }
+    public string Street { get; set; }
+    public int Home { get; set; }
+    public int Kvartira { get; set; }
+    public string E_mail { get; set; }
 }

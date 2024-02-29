@@ -7,12 +7,9 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Имя: Силюков Илья" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock Text="Возраст: 18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="280,0,0,0"/>
-        <StackPanel>
-            <Button Content="Импорт данных" Click="ImportButton_Click"/>
-            <Button Content="Экспорт в Excel" Click="ExportButton_Click"/>
-            <Button Content="Просмотреть данные" Click="DataToDatabaseButton_Click"/>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <Button Content="Импорт JSON данных" Click="ImportJSONButton_Click"/>
+            <Button Content="Экспорт в Word" Click="ExportToWordButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

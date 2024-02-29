@@ -3,74 +3,106 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
-using Excel = Microsoft.Office.Interop.Excel;
-using OfficeOpenXml;
 using Microsoft.Win32;
-using System.ComponentModel;
+using Newtonsoft.Json;
+using Microsoft.Office.Interop.Word;
+using Microsoft.EntityFrameworkCore;
 
 namespace Template4338
 {
-    public partial class Window1 : Window
+    public partial class Window1 : System.Windows.Window
     {
         public Window1()
         {
             InitializeComponent();
         }
 
-
-
-        private void ImportButton_Click(object sender, RoutedEventArgs e)
+        private void ImportJSONButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
+            openFileDialog.Filter = "JSON Files|*.json";
+
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-                List<Model> importedData = LoadDataFromExcel(filePath);
+                List<Model> importedData = LoadDataFromJSON(filePath);
                 SaveDataToDatabase(importedData);
-                Window2 dataWindow = new Window2();
-                dataWindow.Show();
+                MessageBox.Show("Данные успешно импортированы из JSON в базу данных.");
             }
         }
 
-
-
-        private List<Model> LoadDataFromExcel(string filePath)
+        private void ExportToWordButton_Click(object sender, RoutedEventArgs e)
         {
-            List<Model> data = new List<Model>();
-
-            using (ExcelPackage package = new ExcelPackage(new FileInfo(filePath)))
-            {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets[0]; 
-
-                for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
-                {
-                    Model rowData = new Model();
-
-                    try
-                    {
-                        rowData.ФИО = worksheet.Cells[row, 1].Text;
-                        rowData.Код_клиента = Convert.ToInt64(worksheet.Cells[row, 2].Text);
-                        rowData.Дата_рождения = Convert.ToDateTime(worksheet.Cells[row, 3].Text);
-                        rowData.Индекс = Convert.ToInt32(worksheet.Cells[row, 4].Text);
-                        rowData.Город = worksheet.Cells[row, 5].Text;
-                        rowData.Улица = worksheet.Cells[row, 6].Text;
-                        rowData.Дом = Convert.ToInt32(worksheet.Cells[row, 7].Text);
-                        rowData.Квартира = Convert.ToInt32(worksheet.Cells[row, 8].Text);
-                        rowData.Mail = worksheet.Cells[row, 9].Text;
-
-                        data.Add(rowData);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Ошибка при обработке строки {row}: {ex.Message}");
-                    }
-                }
-            }
-
-            return data;
+            Dictionary<string, List<Model>> groupedData = GroupData();
+            SaveGroupedDataToWord(groupedData);
         }
 
+        private void SaveGroupedDataToWord(Dictionary<string, List<Model>> groupedData)
+        {
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+            Microsoft.Office.Interop.Word.Document doc = wordApp.Documents.Add();
+
+            foreach (var group in groupedData)
+            {
+                Microsoft.Office.Interop.Word.Paragraph paragraph = doc.Paragraphs.Add();
+                paragraph.Range.Text = group.Key;
+
+                Microsoft.Office.Interop.Word.Table table = doc.Tables.Add(paragraph.Range, group.Value.Count + 1, 10);
+                table.Cell(1, 2).Range.Text = "FullName";
+                table.Cell(1, 3).Range.Text = "CodeClient";
+                table.Cell(1, 4).Range.Text = "BirthDate";
+                table.Cell(1, 5).Range.Text = "Index";
+                table.Cell(1, 6).Range.Text = "City";
+                table.Cell(1, 7).Range.Text = "Street";
+                table.Cell(1, 8).Range.Text = "Home";
+                table.Cell(1, 9).Range.Text = "Kvartira";
+                table.Cell(1, 10).Range.Text = "E_mail";
+
+                for (int i = 0; i < group.Value.Count; i++)
+                {
+                    var item = group.Value[i];
+                    table.Cell(i + 2, 2).Range.Text = item.FullName;
+                    table.Cell(i + 2, 3).Range.Text = item.CodeClient;
+                    table.Cell(i + 2, 4).Range.Text = item.BirthDate;
+                    table.Cell(i + 2, 5).Range.Text = item.Index;
+                    table.Cell(i + 2, 6).Range.Text = item.City;
+                    table.Cell(i + 2, 7).Range.Text = item.Street;
+                    table.Cell(i + 2, 8).Range.Text = item.Home.ToString();
+                    table.Cell(i + 2, 9).Range.Text = item.Kvartira.ToString();
+                    table.Cell(i + 2, 10).Range.Text = item.E_mail;
+                }
+
+                doc.Paragraphs.Add();
+
+                paragraph.Range.InsertBreak(WdBreakType.wdPageBreak);
+
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Word Files|*.docx";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                doc.SaveAs2(saveFileDialog.FileName);
+                doc.Close();
+                wordApp.Quit();
+                MessageBox.Show("Данные успешно экспортированы в Word.");
+            }
+        }
+
+        private List<Model> LoadDataFromJSON(string filePath)
+        {
+            try
+            {
+                string jsonContent = File.ReadAllText(filePath);
+                List<Model> data = JsonConvert.DeserializeObject<List<Model>>(jsonContent);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке данных из JSON: {ex.Message}");
+                return new List<Model>();
+            }
+        }
 
         private void SaveDataToDatabase(List<Model> data)
         {
@@ -83,80 +115,43 @@ namespace Template4338
                     context.Users.Add(item);
                 }
 
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (DbUpdateException ex)
+                {
+                    Exception innerException = ex.InnerException;
+                    while (innerException != null)
+                    {
+                        Console.WriteLine(innerException.Message);
+                        innerException = innerException.InnerException;
+                    }
 
+                }
                 MessageBox.Show("Данные успешно импортированы в базу данных.");
             }
         }
 
-        private void ExportButton_Click(object sender, RoutedEventArgs e)
-        {
-            Dictionary<string, List<Model>> groupedData = GroupData();
-
-            SaveGroupedDataToExcel(groupedData);
-        }
-
         private Dictionary<string, List<Model>> GroupData()
         {
-            Dictionary<string, List<Model>> groupedData = new Dictionary<string, List<Model>>();
-
-
             using (var context = new DBcontext())
             {
-                var distinctStreets = context.Users.Select(u => u.Улица).Distinct().ToList();
+                Dictionary<string, List<Model>> groupedData = new Dictionary<string, List<Model>>();
+
+                var sortedData = context.Users.OrderBy(u => u.Street).ToList();
+
+                var distinctStreets = sortedData.Select(u => u.Street).Distinct().ToList();
 
                 foreach (var street in distinctStreets)
                 {
-                    var usersOnStreet = context.Users.Where(u => u.Улица == street).ToList();
+                    var usersOnStreet = sortedData.Where(u => u.Street == street).ToList();
                     groupedData.Add(street, usersOnStreet);
                 }
-            }
 
-            return groupedData;
-        }
-
-
-        private void SaveGroupedDataToExcel(Dictionary<string, List<Model>> groupedData)
-        {
-            using (ExcelPackage package = new ExcelPackage())
-            {
-                foreach (var group in groupedData)
-                {
-                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(group.Key);
-
-                    var properties = typeof(Model).GetProperties();
-
-                    for (int col = 1; col <= properties.Length; col++)
-                    {
-                        worksheet.Cells[1, col].Value = properties[col - 1].Name;
-                    }
-
-                    for (int row = 2; row <= group.Value.Count + 1; row++)
-                    {
-                        var item = group.Value[row - 2];
-
-                        for (int col = 1; col <= properties.Length; col++)
-                        {
-                            worksheet.Cells[row, col].Value = properties[col - 1].GetValue(item);
-                        }
-                    }
-                }
-
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                if (saveFileDialog.ShowDialog() == true)
-                {
-                    package.SaveAs(new FileInfo(saveFileDialog.FileName));
-                    MessageBox.Show("Данные успешно экспортированы в Excel.");
-                }
+                return groupedData;
             }
         }
 
-        private void DataToDatabaseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Window2 dataWindow = new Window2();
-            dataWindow.Show();
-            MessageBox.Show("Вы перешли к просмотру данных");
-        }
     }
 }
