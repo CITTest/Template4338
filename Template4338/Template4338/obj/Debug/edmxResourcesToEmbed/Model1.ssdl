@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ISRPO3Model" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ISRPO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Наименование_услуги" Type="nvarchar" MaxLength="100" />
+    <Property Name="Вид_услуги" Type="nvarchar" MaxLength="100" />
+    <Property Name="Код_услуги" Type="varchar" MaxLength="100" />
+    <Property Name="Стоимость" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="lr4">
+    <Key>
+      <PropertyRef Name="IdServices" />
+    </Key>
+    <Property Name="IdServices" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameServices" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeOfService" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeService" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cost" Type="int" />
+  </EntityType>
+  <EntityContainer Name="Хранилище ISRPO3ModelContainer">
+    <EntitySet Name="ISRPO" EntityType="Self.ISRPO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lr4" EntityType="Self.lr4" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

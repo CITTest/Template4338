@@ -24,5 +24,11 @@ namespace Template4338
         {
             InitializeComponent();
         }
+
+        private void Petrova_Button_Click(object sender, RoutedEventArgs e)
+        {
+            _4338_Petrova petrova = new _4338_Petrova();
+            petrova.Show();
+        }
     }
 }
