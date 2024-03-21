@@ -24,5 +24,11 @@ namespace Template4338
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _4338_Ilyasov info = new _4338_Ilyasov();
+            info.Show();
+        }
     }
 }

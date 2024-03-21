@@ -38,6 +38,7 @@
             <RowDefinition Height="*"></RowDefinition>
 
         </Grid.RowDefinitions>
+        <Button Content="Info" HorizontalAlignment="Left" Margin="96,0,0,0" Grid.Row="5" VerticalAlignment="Center" Width="178" Height="29" Click="Button_Click"/>
 
     </Grid>
 </Window>
